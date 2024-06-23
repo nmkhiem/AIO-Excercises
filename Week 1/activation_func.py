@@ -1,12 +1,15 @@
 import math
+
+
 def is_number(n):
     try:
-        float(n) # Type - casting the string to 'float',
-                  # If string is not a valid 'float',
-                  # it'll raise 'ValueError' exception
+        float(n)  # Type - casting the string to 'float',
+        # If string is not a valid 'float',
+        # it'll raise 'ValueError' exception
     except ValueError:
         return False
     return True
+
 
 def count_activation():
     '''
@@ -19,7 +22,8 @@ def count_activation():
         float: Activation value based on user input.
     '''
     x = input('Input x: ')
-    activation_name = input('Input activation name  (sigmoid | relu | elu): ').lower()
+    activation_name = input(
+        'Input activation name  (sigmoid | relu | elu): ').lower()
 
     if is_number(x):
         x = float(x)
@@ -39,12 +43,11 @@ def count_activation():
                 alpha = input('Input alpha: ')
                 if is_number(alpha):
                     alpha = float(alpha)
-                else: 
+                else:
                     print('alpha must be a number')
                     return
                 elu = alpha * (math.exp(x) - 1)
                 print(f'Elu: f({x}) = {elu}')
-                return 
             else:
                 print(f'Elu: f({x}) = {x}')
                 return x
@@ -52,5 +55,3 @@ def count_activation():
             print(f'There is no activation function named {activation_name}')
     else:
         print('x must be a number')
-    return
-    
